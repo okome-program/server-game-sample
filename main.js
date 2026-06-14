@@ -8,6 +8,8 @@ const game_menu_select = document.getElementById("game-menu-select");
 
 const create_room = document.getElementById("create-room");
 
+const game_play = document.getElementById("game-play");
+
 
 let socket = null;
 //let myid = null;
@@ -20,7 +22,7 @@ document.getElementById("start_btn").addEventListener("click", () => {
   socket.onopen = () => {
     document.getElementById("game-title").textContent = "接続成功！";
     game_menu_main.style.display = "none";
-    game_menu_select.style.display = "block";
+    game_play.style.display = "block";
   }
   socket.onerror = (e) => {
     logdayo.textContent = "エラー: " + e;
@@ -48,6 +50,6 @@ document.getElementById("start_btn").addEventListener("click", () => {
     }));
   });*/
 
-  
+
 });
 
