@@ -10,7 +10,7 @@ const create_room = document.getElementById("create-room");
 
 
 let socket = null;
-let myid = null;
+//let myid = null;
 
 document.getElementById("start_btn").addEventListener("click", () => {
 
@@ -30,7 +30,7 @@ document.getElementById("start_btn").addEventListener("click", () => {
     logdayo.textContent = "接続が切断されました";
     document.getElementById("start_btn").textContent = "スタート";
   }
-  socket.onmessage = (e) => {
+  /*socket.onmessage = (e) => {
     const data = JSON.parse(e.data);
 
     if (data.type === "welcome") {
@@ -46,5 +46,8 @@ document.getElementById("start_btn").addEventListener("click", () => {
       type: "next_room",
       id: myid
     }));
-  });
+  });*/
+
+  
 });
+
