@@ -89,6 +89,12 @@ html, body {
   height: 100%;
   display: block;
 }
+#canvas {
+  position: absolute;
+  width: 400;
+  height: 400;
+  background-color: #ffeeee;
+}
 
 #game-play-stop {
   position: relative;
