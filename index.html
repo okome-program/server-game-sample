@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Render 通信テスト</h1>
+    <button onclick="send()">通信</button>
+    <pre id="log"></pre>
+
+    <script>
+      const socket = new WebSocket("wss://server-game-sample-server.onrender.com");
+
+      socket.onopen = () => log("接続成功！");
+      socket.onmessage = (e) => log("受信: " + e.data);
+      socket.onerror = (e) => log("エラー: " + e);
+
+      function send() {
+        socket.send("こんにちは Render!");
+      }
+
+      function log(msg) {
+        document.getElementById("log").textContent += msg + "\n";
+      }
+    </script>
+  </body>
+</html>
