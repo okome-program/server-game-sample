@@ -3,9 +3,12 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 #wrapper {
+  position: absolute;
   width: 100%;
   height: 100%;
   display: flex;
@@ -62,6 +65,16 @@ html, body {
   width: 100%;
   height: 100%;
   display: none;
+}
+#create-room {
+  position: relative;
+  width: 50%;
+  height: 10%;
+  left: 50%;
+  top: 70%;
+  transform: translateX(-50%);
+  font-size: 20px;
+  background-color: #2de3fb;
 }
 
 #game-play {
