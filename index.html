@@ -1,6 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>4つ揃えて対戦するアレ</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
   <body>
+    <div id="wrapper">
+      <div id="main-wrapper">
+        <div id="game-menu">
+          <h1 id="game-title">4つ揃えて対戦するアレ</h1>
+          <div id="game-title-img">画像を用意したかったんですが、用意できませんでした。</div>
+          <div id="game-menu-main">
+            <button id="start_btn">スタート</button>
+          </div>
+
+          <div id="game-menu-select">
+            <div id="server-conect-msg">サーバーに接続中.</div>
+          </div>
+        </div>
+
+        <div id="game-play">
+          <canvas id="canvas" width="448" height="480"></canvas>
+          <div id="game-play-main">
+            <button id="right_btn">→</button>
+            <button id="left_btn">←</button>
+            <button id="enter_btn">決定</button>
+          </div>
+
+          <div id="game-play-stop">
+            <button id="stop_btn">ストップ</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div id="testdesu">
     <h1>Render 通信テスト</h1>
     <button onclick="send()">通信</button>
     <pre id="log"></pre>
@@ -20,5 +57,6 @@
         document.getElementById("log").textContent += msg + "\n";
       }
     </script>
+    </div>
   </body>
 </html>
