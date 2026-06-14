@@ -51,7 +51,7 @@ html, body {
   display: block;
 }
 #start_btn {
-  position: relative;
+  position: absolute;
   width: 50%;
   height: 15%;
   left: 50%;
