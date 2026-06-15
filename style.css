@@ -17,15 +17,17 @@ html, body {
 }
 
 #main-wrapper {
-  position: relative;
-  width: calc(100vh * 9 / 16);
+  position: absolute;
+  aspect-ratio: 9 / 16;
   height: 100%;
   background-color: #ecd45f;
-  overflow: hidden;
+  min-height: 854px;
+  min-width: 480px;
+
 }
 
 #game-menu {
-  position: relative;
+  position: absolute;
   top: 0%;
   left: 0%;
   width: 100%;
@@ -36,7 +38,7 @@ html, body {
   text-align: center;
 }
 #game-title-img {
-  position: relative;
+  position: absolute;
   width: 70%;
   height: 30%;
   left: 50%;
@@ -45,7 +47,9 @@ html, body {
   transform: translate(-50%, -50%);
 }
 #game-menu-main {
-  position: relative;
+  position: absolute;
+  top: 0%;
+  left: 0%;
   width: 100%;
   height: 100%;
   display: block;
@@ -61,43 +65,93 @@ html, body {
   background-color: #5bf0aa;
 }
 #game-menu-select {
-  position: relative;
+  position: absolute;
+  top: 0%;
+  left: 0%;
   width: 100%;
   height: 100%;
   display: none;
 }
 #create-room {
-  position: relative;
-  width: 50%;
-  height: 10%;
+  position: absolute;
+  aspect-ratio: 3 / 1;
+  width: 60%;
   left: 50%;
   top: 70%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   font-size: 20px;
   background-color: #2de3fb;
 }
+#create-room-menu {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0%;
+  top: 0%;
+  display: none;
+}
+#conect-room {
+  position: absolute;
+  aspect-ratio: 3 / 1;
+  width: 60%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  background-color: #8aeb9b;
+}
+#create-room-conect {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
 
 #game-play {
-  position: relative;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  margin: 0;
   width: 100%;
   height: 100%;
   display: none;
 }
 #game-play-main {
-  position: relative;
+  position: absolute;
+  top: 0%;
+  left: 0%;
   width: 100%;
   height: 100%;
   display: block;
 }
-#canvas {
-  position: absolute;
-  width: 400;
-  height: 400;
-  background-color: #ffeeee;
+#enter_btn {
+  position: relative;
+  aspect-ratio: 2 / 1;
+  left: 50%;
+  top: 85%;
+  width: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 2rem;
 }
 
-#game-play-stop {
+#canvas {
   position: relative;
+  aspect-ratio: 1 / 1;
+  left: 50%;
+  top: 50%;
+  width: 75%;
+  transform: translate(-50%, -50%);
+  background: #00ffe527;
+  display: block;
+}
+
+
+#game-play-stop {
+  position: absolute;
+  left: 0%;
+  top: 0%;
   width: 100%;
   height: 100%;
   display: none;

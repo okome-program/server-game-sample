@@ -5,14 +5,13 @@ const game_menu = document.getElementById("game-menu");
 const logdayo = document.getElementById("game-title-img");
 const game_menu_main = document.getElementById("game-menu-main");
 const game_menu_select = document.getElementById("game-menu-select");
-
-const create_room = document.getElementById("create-room");
+const game_title = document.getElementById("game-title");
+const start_btn = document.getElementById("start_btn"); 
 
 const game_play = document.getElementById("game-play");
 
-
 let socket = null;
-//let myid = null;
+let myid = null;
 
 document.getElementById("start_btn").addEventListener("click", () => {
 
@@ -20,36 +19,45 @@ document.getElementById("start_btn").addEventListener("click", () => {
   socket = new WebSocket("wss://server-game-sample-server.onrender.com");
 
   socket.onopen = () => {
-    document.getElementById("game-title").textContent = "接続成功！";
+    game_title.textContent = "接続成功！";
     game_menu_main.style.display = "none";
-    game_play.style.display = "block";
+    game_menu_select.style.display = "block";
   }
   socket.onerror = (e) => {
     logdayo.textContent = "エラー: " + e;
-    document.getElementById("start-btn").textContent = "スタート";
+    start_btn.textContent = "スタート";
   }
   socket.onclose = () => {
     logdayo.textContent = "接続が切断されました";
-    document.getElementById("start_btn").textContent = "スタート";
+    start_btn.textContent = "スタート";
   }
-  /*socket.onmessage = (e) => {
+
+
+  /*---server I/O ---*/
+  socket.onmessage = (e) => {
     const data = JSON.parse(e.data);
 
-    if (data.type === "welcome") {
-      myid = data.id;
-      document.getElementById("game-title").textContent = "あなたのIDは: " + myid;
-    }else if (data.type === "next_room") {
-      myid = data.id;
-      document.getElementById("game-title").textContent = "あなたのIDはこれです: " + myid;
+    switch (data.type) {
+      case "welcome":
+        myid = data.id;
+        game_title.textContent = "あなたのIDは: " + myid;
+        break;
+
+      case "next_room":
+        myid = data.id;
+        game_title.textContent = "あなたのIDはこれです: " + myid;
+        break;
+
+      default:
+        game_title.textContent = "不明なエラーが発生しました";
+        break;
     }
   }
-  create_room.addEventListener("click", () => {
+
+  document.getElementById("create-room").addEventListener("click", () => {
     socket.send(JSON.stringify({
       type: "next_room",
       id: myid
     }));
-  });*/
-
-
+  });
 });
-

@@ -2,7 +2,7 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <title>まるばつ的なもの</title>
+    <title>まるばつげーむ</title>
     <link rel="stylesheet" href="./style.css">
   </head>
   <body>
@@ -10,14 +10,21 @@
       <div id="main-wrapper">
         <script type="module" src="./main.js"></script>
         <div id="game-menu">
-          <h1 id="game-title">まるばつ的なもの</h1>
+          <h1 id="game-title">まるばつげーむ</h1>
           <div id="game-menu-main">
             <div id="game-title-img">画像を用意したかったんですが、用意できませんでした。</div>
             <button id="start_btn">スタート</button>
           </div>
 
           <div id="game-menu-select">
-            <button id="create-room">部屋に参加</button>
+            <button id="create-room">部屋を作成</button>
+            <div id="create-room-menu">
+              <div id="room-id-view">部屋id: </div>
+            </div>
+            <button id="conect-room">部屋に参加</button>
+            <div id="create-room-conect">
+              <div id="room-conect-view">部屋idを入力:</div>
+            </div>
 
           </div>
         </div>
@@ -25,8 +32,6 @@
         <div id="game-play">
           <canvas id="canvas" width="192" height="192"></canvas>
           <div id="game-play-main">
-            <button id="right_btn">→</button>
-            <button id="left_btn">←</button>
             <button id="enter_btn">決定</button>
           </div>
 
