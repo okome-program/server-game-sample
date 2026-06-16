@@ -201,23 +201,15 @@ html, body {
 
 #game-play {
   position: absolute;
+  width: 100%;
+  height: 100%;
   top: 0%;
   left: 0%;
   margin: 0;
-  width: 100%;
-  height: 100%;
   display: none;
 }
-#game-play-main {
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  width: 100%;
-  height: 100%;
-  display: block;
-}
 #enter_btn {
-  position: relative;
+  position: absolute;
   aspect-ratio: 2 / 1;
   left: 50%;
   top: 85%;
@@ -229,7 +221,7 @@ html, body {
 }
 
 #canvas {
-  position: relative;
+  position: absolute;
   aspect-ratio: 1 / 1;
   left: 50%;
   top: 50%;

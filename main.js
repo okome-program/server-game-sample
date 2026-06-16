@@ -33,9 +33,19 @@ function atlas_draw() {
           break;
 
         case 1:
+          ctx.drawImage(img, 192, 0, 64, 64, j * 64, i * 64, 64, 64);
           break;
 
         case 2:
+          ctx.drawImage(img, 64, 0, 64, 64, j * 64, i * 64, 64, 64);
+          break;
+
+        case 3:
+          ctx.drawImage(img, 256, 0, 64, 64, j * 64, i * 64, 64, 64);
+          break;
+
+        case 4:
+          ctx.drawImage(img, 128, 0, 64, 64, j * 64, i * 64, 64, 64);
           break;
 
         default:
@@ -44,6 +54,14 @@ function atlas_draw() {
     }
   }
 
+}
+
+function highlight_clear() {
+  for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 3; j++) {
+      if (game_canvas[i][j] > 2) game_canvas[i][j] = 0;
+    }
+  }
 }
 
 let socket = null;
@@ -56,6 +74,8 @@ let game_start_ok = false;
 
 let game = false;
 
+let pnumber = 0;
+let replace = "no";
 
 document.getElementById("start_btn").addEventListener("pointerdown", () => {
 
@@ -102,6 +122,7 @@ document.getElementById("start_btn").addEventListener("pointerdown", () => {
       case "conect_ok":
         game_title.textContent = "接続しました！";
         document.getElementById("conect-message").style.display = "flex block";
+        room_id = conect_room_number;
         break;
 
       case "conect_error":
@@ -121,13 +142,22 @@ document.getElementById("start_btn").addEventListener("pointerdown", () => {
         document.getElementById("create-room-menu").style.display = "none";
         game_play.style.display = "block";
         game = true;
-        game_title.textContent = "手番順:" + data.pnumber;
-        if (data.pnumber != "1") document.getElementById("enter_btn").textContent = "相手の手番です";
+        pnumber = data.pnumber;
+        replace = data.replace;
+        game_title.textContent = "手番順:" + pnumber;
+        if (replace == "no") document.getElementById("enter_btn").textContent = "相手の手番です";
         img.onload = () => {
           atlas_draw();
         };
         atlas_draw();
-        break
+        break;
+      
+      case "change_replace":
+        game_canvas = data.game_canvas;
+        replace = "ok";
+        document.getElementById("enter_btn").textContent = "決定";
+        atlas_draw();
+        break;
 
       default:
         game_title.textContent = "不明なエラーが発生しました";
@@ -185,8 +215,78 @@ document.getElementById("start_btn").addEventListener("pointerdown", () => {
     });
   });
 
-  document.getElementById("enter_btn").addEventListener("pointerdown", () => {
+
+  canvas.addEventListener("pointerdown", (e) => {
+    const rect = canvas.getBoundingClientRect();
+
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+
+    const x = (e.clientX - rect.left) * scaleX;
+    const y = (e.clientY - rect.top) * scaleY;
+
+    const cellW = canvas.width / 3;
+    const cellH = canvas.height / 3;
+
+    const cx = Math.floor(x / cellW);
+    const cy = Math.floor(y / cellH);
+
+    game_title.textContent = "|x: " + cx + "|y: " + cy + "|";
     
+    switch (replace) {
+      case "ok":
+        switch (pnumber) {
+          case "1":
+            highlight_clear();
+            if (game_canvas[cy][cx] == 0) game_canvas[cy][cx] = 3;
+            break;
+
+          case "2":
+            highlight_clear();
+            if (game_canvas[cy][cx] == 0) game_canvas[cy][cx] = 4;
+            break;
+        }
+        break;
+
+      case "no":
+        game_title.textContent = "相手の手番です";
+        break;
+
+      default:
+        game_title.textContent = "エラー";
+        break;
+    }
+
+    atlas_draw();
+    document.getElementById("enter_btn").addEventListener("pointerdown", () => {
+      switch (replace) {
+        case "ok":
+          if (game_canvas[cy][cx] > 2) {
+            if (pnumber == "1") game_canvas[cy][cx] = 1;
+            if (pnumber == "2") game_canvas[cy][cx] = 2;
+            atlas_draw();
+            socket.send(JSON.stringify({
+              type: "game_replace",
+              room: room_id,
+              pnumber: pnumber,
+              game_canvas: game_canvas
+            }));
+            document.getElementById("enter_btn").textContent = "相手の手番です"
+            replace = "no";
+          }else {
+            game_title.textContent = "その位置には置けません";
+          }
+          break;
+
+        case "no":
+          game_title.textContent = "sample";
+          break;
+
+        default:
+          game_title.textContent = "エラー";
+          break;
+      }
+    });
   });
   /*---Button end---*/
 
