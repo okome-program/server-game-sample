@@ -5,6 +5,8 @@ html, body {
   padding: 0;
   user-select: none;
   -webkit-user-select: none;
+  touch-action: none;
+  -webkit-touch-callout: none;
 }
 
 #wrapper {
