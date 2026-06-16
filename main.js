@@ -77,6 +77,11 @@ let game = false;
 let pnumber = 0;
 let replace = "no";
 
+let win_draw = false;
+let win = false;
+let win_p = null;
+let lose_p = null;
+
 document.getElementById("start_btn").addEventListener("pointerdown", () => {
 
   document.getElementById("start_btn").textContent = "サーバーに接続中...(これには時間がかかる場合があります）";
@@ -102,8 +107,8 @@ document.getElementById("start_btn").addEventListener("pointerdown", () => {
 
     switch (data.type) {
       case "welcome":
+        game_title.textContent = "まるばつげーむ";
         myid = data.id;
-        game_title.textContent = "あなたのIDは: " + myid;
         break;
 
       case "next_room":
@@ -144,8 +149,11 @@ document.getElementById("start_btn").addEventListener("pointerdown", () => {
         game = true;
         pnumber = data.pnumber;
         replace = data.replace;
-        game_title.textContent = "手番順:" + pnumber;
-        if (replace == "no") document.getElementById("enter_btn").textContent = "相手の手番です";
+        if (replace == "ok") game_title.textContent = "あなたの手番です";
+        if (replace == "no") {
+          game_title.textContent = "相手の手番です";
+          document.getElementById("enter_btn").textContent = "相手の手番です";
+        }
         img.onload = () => {
           atlas_draw();
         };
@@ -156,7 +164,32 @@ document.getElementById("start_btn").addEventListener("pointerdown", () => {
         game_canvas = data.game_canvas;
         replace = "ok";
         document.getElementById("enter_btn").textContent = "決定";
+        game_title.textContent = "あなたの手番です";
         atlas_draw();
+        break;
+
+      case "you_win":
+        atlas_draw();
+        game_title.textContent = "";
+        document.getElementById("enter_btn").style.display = "none";
+        document.getElementById("game-set-message").textContent = "勝利";
+        document.getElementById("game-end").style.display = "block";
+        break;
+      
+      case "you_lose":
+        atlas_draw();
+        game_title.textContent = "";
+        document.getElementById("enter_btn").style.display = "none";
+        document.getElementById("game-set-message").textContent = "敗北";
+        document.getElementById("game-end").style.display = "block";
+        break;
+
+      case "game_set_draw":
+        atlas_draw();
+        game_title.textContent = "";
+        document.getElementById("enter_btn").style.display = "none";
+        document.getElementById("game-set-message").textContent = "引き分け";
+        document.getElementById("game-end").style.display = "block";
         break;
 
       default:
@@ -231,7 +264,7 @@ document.getElementById("start_btn").addEventListener("pointerdown", () => {
     const cx = Math.floor(x / cellW);
     const cy = Math.floor(y / cellH);
 
-    game_title.textContent = "|x: " + cx + "|y: " + cy + "|";
+    //game_title.textContent = "|x: " + cx + "|y: " + cy + "|";
     
     switch (replace) {
       case "ok":
@@ -265,13 +298,80 @@ document.getElementById("start_btn").addEventListener("pointerdown", () => {
             if (pnumber == "1") game_canvas[cy][cx] = 1;
             if (pnumber == "2") game_canvas[cy][cx] = 2;
             atlas_draw();
-            socket.send(JSON.stringify({
-              type: "game_replace",
-              room: room_id,
-              pnumber: pnumber,
-              game_canvas: game_canvas
-            }));
+
+            for (let i = 0; i < 3; i++) {
+              if (game_canvas[i][0] !== 0 && game_canvas[i][0] === game_canvas[i][1] && game_canvas[i][1] === game_canvas[i][2]) {
+                if (game_canvas[i][0] == 1) {
+                  win_p = "0";
+                  lose_p = "1";
+                }else if (game_canvas[i][0] == 2) {
+                  win_p = "1";
+                  lose_p = "0"
+                }
+                win = true;
+              }
+              if (game_canvas[0][i] !== 0 && game_canvas[0][i] === game_canvas[1][i] && game_canvas[1][i] === game_canvas[2][i]) {
+                if (game_canvas[0][i] == 1) {
+                  win_p = "0";
+                  lose_p = "1";
+                }else if (game_canvas[0][i] == 2) {
+                  win_p = "1";
+                  lose_p = "0";
+                }
+                win = true;
+              }
+            }
+            if (game_canvas[0][0] !== 0 && game_canvas[0][0] === game_canvas[1][1] && game_canvas[1][1] === game_canvas[2][2]) {
+              if (game_canvas[0][0] === 1) {
+                win_p = "0";
+                lose_p = "1";
+              }else if (game_canvas[0][0] === 2) {
+                win_p = "1";
+                lose_p = "0";
+              }
+              win = true;
+            }
+            if (game_canvas[2][0] !== 0 && game_canvas[2][0] === game_canvas[1][1] && game_canvas[1][1] === game_canvas[0][2]) {
+              if (game_canvas[2][0] === 1) {
+                win_p = "0";
+                lose_p = "1";
+              }else if (game_canvas[2][0] === 2) {
+                win_p = "1";
+                lose_p = "0";
+              }
+              win = true;
+            }
+            if (win === false) {
+              win_draw = true;
+              for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                  if (game_canvas[i][j] == 0) win_draw = false;
+                }
+              }
+            }
+
+            if (win === false && win_draw === false) {
+              socket.send(JSON.stringify({
+                type: "game_replace",
+                room: room_id,
+                pnumber: pnumber,
+                game_canvas: game_canvas
+              }));
+            }else if (win === true) {
+              socket.send(JSON.stringify({
+                type: "game_set",
+                room: room_id,
+                win_p: win_p,
+                lose_p: lose_p
+              }));
+            }else if (win_draw === true) {
+              socket.send(JSON.stringify({
+                type: "win_draw",
+                room: room_id
+              }));
+            }
             document.getElementById("enter_btn").textContent = "相手の手番です"
+            game_title.textContent = "相手の手番です";
             replace = "no";
           }else {
             game_title.textContent = "その位置には置けません";
@@ -279,7 +379,7 @@ document.getElementById("start_btn").addEventListener("pointerdown", () => {
           break;
 
         case "no":
-          game_title.textContent = "sample";
+          game_title.textContent = "相手の手番です";
           break;
 
         default:
