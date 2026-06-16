@@ -57,7 +57,7 @@ let game_start_ok = false;
 let game = false;
 
 
-document.getElementById("start_btn").addEventListener("click", () => {
+document.getElementById("start_btn").addEventListener("pointerdown", () => {
 
   document.getElementById("start_btn").textContent = "サーバーに接続中...(これには時間がかかる場合があります）";
   socket = new WebSocket("wss://server-game-sample-server.onrender.com");
@@ -136,7 +136,7 @@ document.getElementById("start_btn").addEventListener("click", () => {
   }
 
   /*---Button start ---*/
-  document.getElementById("create-room").addEventListener("click", () => {
+  document.getElementById("create-room").addEventListener("pointerdown", () => {
     document.getElementById("room-menu").style.display = "none";
     document.getElementById("create-room-menu").style.display = "block";
 
@@ -146,7 +146,7 @@ document.getElementById("start_btn").addEventListener("click", () => {
       id: myid
     }));
 
-    document.getElementById("game-start").addEventListener("click", () => {
+    document.getElementById("game-start").addEventListener("pointerdown", () => {
       if (game_start_ok === true) {
         socket.send(JSON.stringify({
           type: "game_start",
@@ -157,23 +157,23 @@ document.getElementById("start_btn").addEventListener("click", () => {
     });
   });
 
-  document.getElementById("conect-room").addEventListener("click", () => {
+  document.getElementById("conect-room").addEventListener("pointerdown", () => {
     const room_conect_view = document.getElementById("room-conect-view");
 
     game_title.textContent = "部屋番号を選択";
     document.getElementById("room-menu").style.display = "none";
     document.getElementById("create-room-conect").style.display = "block";
 
-    document.getElementById("room-number-add").addEventListener("click", () => {
+    document.getElementById("room-number-add").addEventListener("pointerdown", () => {
       if (conect_room_number < 9) conect_room_number += 1;
       room_conect_view.textContent = "部屋番号: " + conect_room_number;
     });
-    document.getElementById("room-number-sub").addEventListener("click", () => {
+    document.getElementById("room-number-sub").addEventListener("pointerdown", () => {
       if (conect_room_number > 1) conect_room_number -= 1;
       room_conect_view.textContent = "部屋番号: " + conect_room_number;
     });
 
-    document.getElementById("room-number-enter").addEventListener("click", () => {
+    document.getElementById("room-number-enter").addEventListener("pointerdown", () => {
       document.getElementById("create-room-conect").style.display = "none";
       document.getElementById("conect-room-view").style.display = "block";
       game_title.textContent = "接続...";
@@ -185,7 +185,7 @@ document.getElementById("start_btn").addEventListener("click", () => {
     });
   });
 
-  document.getElementById("enter_btn").addEventListener("click", () => {
+  document.getElementById("enter_btn").addEventListener("pointerdown", () => {
     
   });
   /*---Button end---*/
