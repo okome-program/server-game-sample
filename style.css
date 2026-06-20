@@ -7,6 +7,7 @@ html, body {
   -webkit-user-select: none;
   touch-action: none;
   -webkit-touch-callout: none;
+  -webkit-text-size-adjust: 100%;
 }
 
 #wrapper {
