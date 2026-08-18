@@ -1,6 +1,4 @@
 // /main.js
-
-const wrapper = document.getElementById("wrapper");
 const aspect_wrapper = document.getElementById("aspect-wrapper");
 
 function aspect_wrapper_resize() {
