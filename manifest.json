@@ -1,6 +1,6 @@
 {
-  "name": "まるばつげーむ",
-  "short_name": "まるばつげーむ",
+  "name": "サーバーゲーム",
+  "short_name": "サーバーゲーム",
   "start_url": "/",
   "display": "standalone",
   "icons": [
