@@ -1,4 +1,4 @@
-// /main.js
+// layout.js
 const aspect_wrapper = document.getElementById("aspect-wrapper");
 
 function aspect_wrapper_resize() {
