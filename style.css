@@ -1,0 +1,57 @@
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  background: #afdeb4;
+  margin: 0;
+}
+
+#wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+#aspect-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  background-color: #a3dda9;
+}
+
+#server-game-title {
+  user-select: none;
+  -webkit-user-select: none;
+  width: 100%;
+}
+#title-bottom {
+  width: 90%;
+  height: 0.2%;
+  background-color: #333333;
+}
+#game-list-icons {
+  position: relative;
+  top: 3%;
+  width: 95%;
+  height: 75%;
+  background-color: #bad7d4;
+  border-radius: 4%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.list-item {
+  margin: 2%;
+  width: 85%;
+  border-radius: 5%;
+  box-shadow: 0 2px 6px #00000033;
+}
+
+#marubatu-game {
+  background-color: #f1d699;
+}
