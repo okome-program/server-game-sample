@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="500"
+   height="300"
+   viewBox="0 0 132.29166 79.375"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:22.4999px;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans, Bold';writing-mode:lr-tb;direction:ltr;fill:#e1b36c;fill-opacity:1;stroke-width:0.282129"
+       x="-1.1083684"
+       y="208.22591"
+       id="text2"
+       transform="scale(3.0769419,0.32499801)"><tspan
+         id="tspan2"
+         style="stroke-width:0.282128"
+         x="-1.1083684"
+         y="208.22591">グー</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:13.7856px;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans, Bold';writing-mode:lr-tb;direction:ltr;fill:#e1b36c;fill-opacity:1;stroke-width:0.172861"
+       x="143.4057"
+       y="144.22311"
+       id="text3"
+       transform="matrix(0.3692709,-1.2863837,0.26737609,1.7766138,0,0)"><tspan
+         id="tspan3"
+         style="stroke-width:0.172861"
+         x="143.4057"
+         y="144.22311">チョキ</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:12.6902px;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans, Bold';writing-mode:lr-tb;direction:ltr;fill:#e1b36c;fill-opacity:1;stroke-width:0.159126"
+       x="153.23299"
+       y="-84.379486"
+       id="text4"
+       transform="matrix(0.28596721,1.371951,-0.26488397,2.226102,0,0)"><tspan
+         id="tspan4"
+         style="stroke-width:0.159124"
+         x="153.23299"
+         y="-84.379486">パーー</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:22.4896px;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans, Bold';writing-mode:lr-tb;direction:ltr;fill:#f7b636;fill-opacity:1;stroke-width:0.282001"
+       x="8.1138897"
+       y="47.095833"
+       id="text5"><tspan
+         id="tspan5"
+         style="fill:#f7b636;fill-opacity:1;stroke-width:0.282"
+         x="8.1138897"
+         y="47.095833">じゃんけん</tspan></text>
+  </g>
+</svg>
