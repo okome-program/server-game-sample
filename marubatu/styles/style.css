@@ -17,6 +17,7 @@ body {
 }
 
 #aspect-wrapper {
+  position: relative;
   background-color: #fcc186;
 }
 
@@ -321,7 +322,7 @@ body {
 }
 
 #game-set {
-  position: relative;
+  position: absolute;
   z-index: 100;
   width: 100%;
   height: 100%;
