@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="500"
+   height="300"
+   viewBox="0 0 132.29167 79.374999"
+   version="1.1"
+   id="svg1"
+   xml:space="preserve"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+     id="defs1" /><g
+     id="layer1"><rect
+       style="fill:#cccccc;fill-opacity:1;stroke-width:0.387237;stroke-dasharray:none"
+       id="rect4"
+       width="68.791664"
+       height="68.791664"
+       x="58.208332"
+       y="5.2916665" /><rect
+       style="fill:#1d1e1d;fill-opacity:1;stroke-width:0.100331;stroke-dasharray:none"
+       id="rect3"
+       width="63.5"
+       height="0.79374999"
+       x="60.854168"
+       y="28.222221" /><use
+       x="0"
+       y="0"
+       xlink:href="#rect3"
+       id="use4"
+       transform="translate(-1.2715658e-6,22.930555)" /><use
+       x="0"
+       y="0"
+       xlink:href="#use4"
+       id="use5"
+       transform="matrix(0.0125,0,0,80.000001,80.378212,-4084.2847)" /><use
+       x="0"
+       y="0"
+       xlink:href="#use5"
+       id="use6"
+       transform="translate(22.930555,3.8886287e-5)" /></g><text
+     xml:space="preserve"
+     style="font-weight:bold;font-size:6.92868px;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans, Bold';writing-mode:lr-tb;direction:ltr;fill:#222222;stroke-width:0.0868792"
+     x="61.579651"
+     y="14.653014"
+     id="text1"
+     transform="scale(0.3080823,3.2458859)"><tspan
+       id="tspan1"
+       style="stroke-width:0.0868792"
+       x="61.579651"
+       y="14.653014">画像が用意できました！</tspan></text></svg>

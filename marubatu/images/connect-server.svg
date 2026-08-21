@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="800"
+   height="100"
+   viewBox="0 0 211.66666 26.458333"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:21.8455px;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans, Bold';writing-mode:lr-tb;direction:ltr;fill:#333333;fill-opacity:1;stroke-width:0.273925"
+       x="9.6187992"
+       y="21.140989"
+       id="text1"
+       transform="scale(0.97221005,1.0285843)"><tspan
+         style="fill:#333333;fill-opacity:1;stroke-width:0.273925"
+         x="9.6187992"
+         y="21.140989"
+         id="tspan2">サーバーに接続中...</tspan></text>
+  </g>
+</svg>
