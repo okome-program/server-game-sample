@@ -131,8 +131,8 @@ function turn_start(s) {
 
 function connect_server() {
   start_btn_img.src = "./images/connect-server.svg";
-  // Socket = new WebSocket("wss://server-game-sample-server.onrender.com");
-  Socket = new WebSocket("ws://localhost:3000");
+  Socket = new WebSocket("wss://server-game-sample-server.onrender.com");
+  // Socket = new WebSocket("ws://localhost:3000");
 
   Socket.onopen = () => {
     console.log("接続成功！");
