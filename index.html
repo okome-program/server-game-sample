@@ -1,197 +1,47 @@
 <!doctype html>
 <html lang="ja">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>まるばつげーむ</title>
-    <link rel="stylesheet" href="./styles/style.css" />
+    <title>サーバーゲーム</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="manifest" href="./manifest.json" />
   </head>
   <body>
     <div id="wrapper">
       <div id="aspect-wrapper">
-        <!-- game set-->
-        <div id="game-set">
-          <img id="game-result" class="ui-img" alt="画像が見つかりません" />
+        <img
+          id="server-game-title"
+          src="./images/server-game-title.svg"
+          alt="画像が見つかりません"
+        />
+        <div id="title-bottom"></div>
+        <div id="game-list-icons">
           <a
-            id="back-menu-link"
+            class="list-item"
             href="https://okome-program.github.io/server-game-sample/marubatu"
           >
             <img
-              class="ui-img btn-img"
-              src="./images/back-menu.svg"
+              class="list-item-img"
+              id="marubatu-game"
+              src="./images/marubatu-game.svg"
+              alt="画像が見つかりません"
+            />
+          </a>
+          <a
+            class="list-item"
+            href="https://okome-program.github.io/server-game-sample/janken"
+          >
+            <img
+              class="list-item-img"
+              id="janken"
+              src="./images/janken.svg"
               alt="画像が見つかりません"
             />
           </a>
         </div>
-        <!--Menu-->
-        <div id="menu">
-          <img
-            id="game-title"
-            class="ui-img"
-            src="./images/marubatu-game.svg"
-            alt="画像が見つかりません"
-          />
-          <div id="game-title-bottom"></div>
-
-          <!--menu title view-->
-          <div id="menu-title-view">
-            <img
-              id="marubatu-game-img"
-              class="ui-img"
-              src="./images/marubatu-game-img.svg"
-              alt="画像が見つかりません"
-            />
-            <button class="ui-btn" id="start-btn">
-              <img
-                class="btn-img ui-img"
-                id="start-btn-img"
-                src="./images/start.svg"
-                alt="画像が見つかりません"
-              />
-            </button>
-          </div>
-
-          <!--Main Room-->
-          <div id="main-room">
-            <div id="room-select-wrapper">
-              <div id="main-room-select">
-                <button id="main-room-connect-btn" class="ui-btn">
-                  <img
-                    id="main-room-connect-img"
-                    class="btn-img ui-img"
-                    src="./images/main-room-connect-room.svg"
-                    alt="画像が見つかりません"
-                  />
-                </button>
-                <button id="main-room-create-btn" class="ui-btn">
-                  <img
-                    id="main-room-create-img"
-                    class="btn-img ui-img"
-                    src="./images/main-room-create-room.svg"
-                    alt="画像が見つかりません"
-                  />
-                </button>
-              </div>
-              <div id="main-room-connect-menu">
-                <div id="connect-room-id-select">
-                  <button id="connect-room-minus-btn" class="ui-btn crbtns">
-                    <img
-                      id="connect-room-minus-btn-img"
-                      class="btn-img ui-img"
-                      src="./images/minus.svg"
-                      alt="画像が見つかりません"
-                    />
-                  </button>
-                  <div id="connect-room-id-view">0</div>
-                  <button id="connect-room-plus-btn" class="ui-btn crbtns">
-                    <img
-                      id="connect-room-plus-btn-img"
-                      class="btn-img ui-img"
-                      src="./images/plus.svg"
-                      alt="画像が見つかりません"
-                    />
-                  </button>
-                </div>
-                <button id="connect-room-btn" class="ui-btn">
-                  <img
-                    id="connect-room-btn-img"
-                    class="btn-img ui-img"
-                    src="./images/connect-room.svg"
-                    alt="画像が見つかりません"
-                  />
-                </button>
-              </div>
-              <div id="main-room-create-menu">
-                <button id="create-room-btn" class="ui-btn">
-                  <img
-                    id="create-room-btn-img"
-                    class="btn-img ui-img"
-                    src="./images/create.svg"
-                    alt="画像が見つかりません"
-                  />
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- connect menu stand-->
-          <div id="connect-menu-stand">
-            <img
-              id="connect-menu-stand-img"
-              class="ui-img stand-img"
-              src="./images/connect-menu-stand.svg"
-              alt="画像が見つかりません"
-            />
-          </div>
-          <div id="connect-error-menu">
-            <img
-              class="ui-img stand-img"
-              src="./images/error_cannot_connect.svg"
-              alt="画像が見つかりません"
-            />
-            <button id="back-connect-btn" class="ui-btn">
-              <img
-                class="ui-img btn-img"
-                src="./images/back-connect.svg"
-                alt="画像が見つかりません"
-              />
-            </button>
-          </div>
-          <!-- connect menu main -->
-          <div id="connect-menu-main">
-            <img
-              id="start.stand"
-              class="ui-img stand-img"
-              src="./images/start-stand.svg"
-              alt="画像が見つかりません"
-            />
-          </div>
-          <!-- main create room-->
-          <div id="main-create-room">
-            <div id="main-create-room-stand">
-              <img
-                class="ui-img stand-img"
-                src="./images/create-room---.svg"
-                alt="画像が見つかりません"
-              />
-            </div>
-            <!-- main create room main -->
-            <div id="main-create-room-main">
-              <div id="create-room-number-view"></div>
-              <img
-                id="match-member-view"
-                class="ui-img"
-                src="./images/match-member.svg"
-                alt="画像が見つかりません"
-              />
-              <button id="marubatu-start-btn" class="ui-btn">
-                <img
-                  id="marubatu-start-img"
-                  class="btn-img ui-img"
-                  src="./images/create-menu-connect-stand.svg"
-                  alt="画像が見つかりません"
-                />
-              </button>
-            </div>
-          </div>
-        </div>
-        <!--game-->
-        <div id="game">
-          <img id="turn-view" class="ui-img" alt="画像が見つかりません" />
-          <canvas id="canvas" width="300" height="300"></canvas>
-          <button id="turn-enter-btn" class="ui-btn">
-            <img
-              id="turn-enter-btn-img"
-              class="ui-img ui-btn"
-              src="./images/turn-enter.svg"
-              alt="画像が見つかりません"
-            />
-          </button>
-        </div>
       </div>
-      <!--aspect wrapper end-->
     </div>
-    <!--wrapper end-->
     <script src="./scripts/layout.js"></script>
-    <script src="./scripts/main.js"></script>
   </body>
 </html>

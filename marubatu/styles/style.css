@@ -330,19 +330,22 @@ body {
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  background-color: #8a8a8a11;
+  background-color: #00000022;
 }
 #game-result {
-  margin-top: 20%;
+  margin-top: 50%;
   width: 80%;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px #00000022;
+  background-color: #eeeeee;
 }
 
 #back-menu-link {
-  margin-top: 60%;
+  margin-top: 30%;
   width: 60%;
   height: 15%;
-  background-color: #eeeeee;
+  background-color: #ffdb66;
   border-radius: 20px;
-  border: 1px solid #00000009;
+  border: 2px solid #00000009;
   box-shadow: 0 4px 12px #00000022;
 }

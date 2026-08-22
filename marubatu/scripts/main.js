@@ -131,8 +131,8 @@ function turn_start(s) {
 
 function connect_server() {
   start_btn_img.src = "./images/connect-server.svg";
-  Socket = new WebSocket("wss://server-game-sample-server.onrender.com");
-  // Socket = new WebSocket("ws://localhost:3000");
+  // Socket = new WebSocket("wss://server-game-sample-server.onrender.com");
+  Socket = new WebSocket("ws://localhost:3000");
 
   Socket.onopen = () => {
     console.log("接続成功！");
@@ -202,6 +202,14 @@ function connect_server() {
         turn_view.src = "./images/game-set.svg";
         game_set.style.display = "flex";
         game_result.src = "./images/you-lose.svg";
+        console.log(data.type);
+        break;
+      case "marubatu_game_draw":
+        marubatu_board = data.board;
+        atlas_draw();
+        turn_view.src = "./images/game-set.svg";
+        game_set.style.display = "flex";
+        game_result.src = "./images/marubatu_game_draw.svg";
         console.log(data.type);
         break;
       case "error_connect":

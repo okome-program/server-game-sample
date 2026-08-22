@@ -39,7 +39,8 @@ body {
   width: 95%;
   height: 75%;
   background-color: #bad7d4;
-  border-radius: 4%;
+  border-radius: 20px;
+  border: 1px solid #00000011;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -48,8 +49,9 @@ body {
 .list-item {
   margin: 2%;
   width: 85%;
-  border-radius: 5%;
-  box-shadow: 0 2px 6px #00000033;
+  border-radius: 20px;
+  box-shadow: 0 2px 6px #00000022;
+  border: 1px solid #00000011;
   user-select: none;
   -webkit-user-select: none;
   overflow: hidden;
